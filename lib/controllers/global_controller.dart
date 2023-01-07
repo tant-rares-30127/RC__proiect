@@ -7,8 +7,8 @@ class GlobalController extends GetxController {
   final RxDouble _longitude = 0.0.obs;
 
   RxBool checkLoading() => _isLoading;
-  RxDouble checkLattitude() => _latitude;
-  RxDouble checkLongitude() => _longitude;
+  RxDouble getLattitude() => _latitude;
+  RxDouble getLongitude() => _longitude;
 
   @override
   void onInit() {
