@@ -8,7 +8,7 @@ class FetchWeatherAPI {
   WeatherData? weatherData;
 
   Future<WeatherData> processData(lat, lon) async {
-    var response = await http.get(Uri.parse());
+    var response = await http.get(Uri.parse(apiURL(lat, lon)));
     var jsonString = jsonDecode(response.body);
     weatherData = WeatherData(WeatherDataCurrent.fromJson(jsonString));
 
