@@ -25,6 +25,7 @@ class _HeaderWidgetState extends State<HeaderWidget> {
 
   getAddress(lat, lon) async {
     List<Placemark> placemark = await placemarkFromCoordinates(lat, lon);
+    print(placemark);
   }
 
   @override
