@@ -20,23 +20,28 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Obx(() => globalController.checkLoading().isTrue
-            ? const Center(
-                child: CircularProgressIndicator(),
-              )
-            : ListView(
-                scrollDirection: Axis.vertical,
-                children: [
-                  const SizedBox(
-                    height: 20,
+        child: Obx(
+          () => globalController.checkLoading().isTrue
+              ? const Center(
+                  child: CircularProgressIndicator(),
+                )
+              : Center(
+                  child: ListView(
+                    scrollDirection: Axis.vertical,
+                    children: [
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      const HeaderWidget(),
+                      //for the current temp ('current')
+                      CurrentWeatherWidget(
+                        weatherDataCurrent:
+                            globalController.getData().getCurrentWeather(),
+                      ),
+                    ],
                   ),
-                  const HeaderWidget(),
-                  CurrentWeatherWidget(
-                    weatherDataCurrent:
-                        globalController.getData().getCurrentWeather(),
-                  ),
-                ],
-              )),
+                ),
+        ),
       ),
     );
   }
