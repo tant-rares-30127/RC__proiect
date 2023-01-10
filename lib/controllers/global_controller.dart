@@ -1,7 +1,6 @@
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:weatherapp_starter_project/api/fetch_weather.dart';
-import 'package:weatherapp_starter_project/model/weather/weather.dart';
 
 import '../model/weather_data.dart';
 

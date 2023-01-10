@@ -1,6 +1,3 @@
-import 'package:weatherapp_starter_project/model/weather/hourly.dart';
-import 'package:weatherapp_starter_project/model/weather/weather.dart';
-
 class WeatherDataHourly {
   List<Hourly> hourly;
   WeatherDataHourly({required this.hourly});
