@@ -26,9 +26,17 @@ class _HomeScreenState extends State<HomeScreen> {
       body: SafeArea(
         child: Obx(
           () => globalController.checkLoading().isTrue
-              ? const Center(
-                  child: CircularProgressIndicator(),
-                )
+              ? Center(
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                      Image.asset(
+                        "assets/icons/clouds.png",
+                        height: 200,
+                        width: 200,
+                      ),
+                      const CircularProgressIndicator()
+                    ]))
               : Center(
                   child: ListView(
                     scrollDirection: Axis.vertical,
