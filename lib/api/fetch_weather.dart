@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:weatherapp_starter_project/api/api_key.dart';
 import 'package:weatherapp_starter_project/model/utils/api_url.dart';
 import 'package:weatherapp_starter_project/model/weather_data.dart';
 import 'package:http/http.dart' as http;
