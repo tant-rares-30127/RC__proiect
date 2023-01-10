@@ -29,7 +29,7 @@ class HourlyDataWidget extends StatelessWidget {
 
   Widget hourlyList() {
     return Container(
-      height: 150,
+      height: 160,
       padding: const EdgeInsets.only(top: 10, bottom: 10),
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
@@ -37,11 +37,13 @@ class HourlyDataWidget extends StatelessWidget {
             ? 12
             : weatherDataHourly.hourly.length,
         itemBuilder: (context, index) {
-          return GestureDetector(
+          return Obx((() => GestureDetector(
               onTap: () {
                 cardIndex.value = index;
               },
               child: Container(
+                width: 90,
+                margin: const EdgeInsets.only(left: 20, right: 5),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12),
                     boxShadow: [
@@ -63,7 +65,7 @@ class HourlyDataWidget extends StatelessWidget {
                   weatherIcon:
                       weatherDataHourly.hourly[index].weather![0].icon!,
                 ),
-              ));
+              ))));
         },
       ),
     );
