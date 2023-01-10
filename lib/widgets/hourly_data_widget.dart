@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:intl/intl.dart';
 import 'package:weatherapp_starter_project/controllers/global_controller.dart';
 import 'package:weatherapp_starter_project/model/utils/custom_colors.dart';
@@ -76,7 +77,7 @@ class HourlyDetails extends StatelessWidget {
   String weatherIcon;
 
   String getTime(final timeStamp) {
-    DateTime time = DateTime.fromMillisecondsSinceEpoch(timeStamp);
+    DateTime time = DateTime.fromMillisecondsSinceEpoch(timeStamp * 1000);
     String x = DateFormat('jm').format(time);
     return x;
   }
