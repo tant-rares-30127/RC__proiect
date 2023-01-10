@@ -60,6 +60,8 @@ class HourlyDataWidget extends StatelessWidget {
                           ])
                         : null),
                 child: HourlyDetails(
+                  index: index,
+                  cardIndex: cardIndex.toInt(),
                   temp: weatherDataHourly.hourly[index].temp!,
                   timeStamp: weatherDataHourly.hourly[index].dt!,
                   weatherIcon:
@@ -75,21 +77,25 @@ class HourlyDataWidget extends StatelessWidget {
 //houry details class;
 class HourlyDetails extends StatelessWidget {
   int temp;
+  int index;
+  int cardIndex;
   int timeStamp;
   String weatherIcon;
+
+  HourlyDetails(
+      {Key? key,
+      required this.cardIndex,
+      required this.index,
+      required this.timeStamp,
+      required this.temp,
+      required this.weatherIcon})
+      : super(key: key);
 
   String getTime(final timeStamp) {
     DateTime time = DateTime.fromMillisecondsSinceEpoch(timeStamp * 1000);
     String x = DateFormat('jm').format(time);
     return x;
   }
-
-  HourlyDetails(
-      {Key? key,
-      required this.timeStamp,
-      required this.temp,
-      required this.weatherIcon})
-      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -98,7 +104,13 @@ class HourlyDetails extends StatelessWidget {
       children: [
         Container(
           margin: const EdgeInsets.only(top: 10),
-          child: Text(getTime(timeStamp)),
+          child: Text(
+            getTime(timeStamp),
+            style: TextStyle(
+                color: cardIndex == index
+                    ? Colors.white
+                    : CustomColors.textColorBlack),
+          ),
         ),
         Container(
           margin: const EdgeInsets.all(5),
@@ -110,7 +122,12 @@ class HourlyDetails extends StatelessWidget {
         ),
         Container(
           margin: const EdgeInsets.only(bottom: 10),
-          child: Text("$temp°"),
+          child: Text("$temp°",
+              style: TextStyle(
+                color: cardIndex == index
+                    ? Colors.white
+                    : CustomColors.textColorBlack,
+              )),
         )
       ],
     );
